@@ -1,11 +1,13 @@
 import { skills } from '../data'
+import { useInView } from '../hooks/useInView'
 
 export function SkillsSection() {
+  const { ref, inView } = useInView()
   return (
     <section id="skills" className="py-24 sm:py-32 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6" ref={ref}>
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className={`scroll-animate text-center mb-16 ${inView ? 'in-view' : ''}`}>
           <span className="inline-block text-xs uppercase tracking-widest text-blue-400 font-medium mb-4">
             Tecnologías
           </span>
@@ -16,7 +18,7 @@ export function SkillsSection() {
         </div>
 
         {/* Skills grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className={`scroll-animate grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.1s' }}>
           {skills.map((skill, i) => (
             <div
               key={skill.name}

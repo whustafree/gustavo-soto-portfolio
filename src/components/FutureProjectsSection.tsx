@@ -1,15 +1,18 @@
 import { futureProjects } from '../data'
+import { useInView } from '../hooks/useInView'
 
 export function FutureProjectsSection() {
+  const { ref, inView } = useInView()
+
   return (
     <section id="future" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative" ref={ref}>
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className={`scroll-animate text-center mb-16 ${inView ? 'in-view' : ''}`}>
           <span className="inline-block text-xs uppercase tracking-widest text-violet-400 font-medium mb-4">
             Próximos pasos
           </span>
@@ -20,7 +23,7 @@ export function FutureProjectsSection() {
         </div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className={`scroll-animate grid sm:grid-cols-2 gap-6 ${inView ? 'in-view' : ''}`} style={{ transitionDelay: '0.1s' }}>
           {futureProjects.map((project, i) => {
             const Icon = project.icon
             return (

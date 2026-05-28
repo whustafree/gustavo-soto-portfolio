@@ -1,5 +1,6 @@
 import { ExternalLink, Smartphone } from 'lucide-react'
 import type { Project } from '../types'
+import { ImageGallery } from './ImageGallery'
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const Icon = project.icon
@@ -44,6 +45,11 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             </span>
           ))}
         </div>
+
+        {/* Screenshots gallery */}
+        {project.images && project.images.length > 0 && (
+          <ImageGallery images={project.images} projectTitle={project.title} />
+        )}
 
         {/* Links */}
         {project.links && project.links.length > 0 ? (

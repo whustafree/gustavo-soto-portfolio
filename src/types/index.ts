@@ -1,6 +1,11 @@
 import type { ComponentType } from 'react'
 import type { LucideIcon } from 'lucide-react'
 
+export type GalleryImage = {
+  src: string
+  alt: string
+}
+
 export type Tech = {
   name: string
   color: string
@@ -14,6 +19,7 @@ export type Project = {
   tech: string[]
   icon: LucideIcon | ComponentType<{ className?: string }>
   gradient: string
+  images?: GalleryImage[]
   links?: { label: string; href: string }[]
   status: 'completado' | 'en progreso' | 'idea'
 }

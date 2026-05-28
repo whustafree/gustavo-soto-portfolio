@@ -20,9 +20,38 @@
   --color-rose-400: #fb7185;
 }
 
+/* ─── Light theme ───────────────────────────────────────── */
+[data-theme="light"] {
+  --color-slate-950: #f8fafc;
+  --color-slate-900: #f1f5f9;
+  --color-slate-850: #e2e8f0;
+  --color-slate-800: #cbd5e1;
+  --color-slate-700: #94a3b8;
+  --color-slate-600: #64748b;
+  --color-slate-500: #475569;
+  --color-slate-400: #334155;
+  --color-slate-300: #1e293b;
+  --color-slate-200: #0f172a;
+  --color-slate-100: #020617;
+
+  --color-blue-500: #2563eb;
+  --color-blue-400: #3b82f6;
+  --color-blue-300: #60a5fa;
+  --color-cyan-400: #0891b2;
+  --color-emerald-400: #059669;
+  --color-violet-400: #7c3aed;
+  --color-amber-400: #d97706;
+  --color-rose-400: #e11d48;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
 * {
   scrollbar-width: thin;
   scrollbar-color: #334155 transparent;
+}
+
+[data-theme="light"] * {
+  scrollbar-color: #cbd5e1 transparent;
 }
 
 ::-webkit-scrollbar {
@@ -36,11 +65,21 @@
   border-radius: 3px;
 }
 
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
 ::selection {
   background: rgba(59, 130, 246, 0.3);
   color: #fff;
 }
 
+[data-theme="light"] ::selection {
+  background: rgba(37, 99, 235, 0.2);
+  color: #020617;
+}
+
+/* ─── Animations ────────────────────────────────────────── */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -66,6 +105,15 @@
   50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.3); }
 }
 
+[data-theme="light"] .animate-pulse-glow {
+  animation-name: pulseGlowLight;
+}
+
+@keyframes pulseGlowLight {
+  0%, 100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.2); }
+}
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -77,6 +125,49 @@
   100% { background-position: 200% 0; }
 }
 
+/* ─── Custom cursor: hide default on desktop ──────────── */
+@media (hover: hover) and (pointer: fine) {
+  body:has(.custom-cursor-active) {
+    cursor: none;
+  }
+}
+
+/* ─── Reduced motion ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── Focus visible ─────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-blue-400);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─── Scroll animation (intersection observer) ─────────── */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Utility classes ───────────────────────────────────── */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out both;
 }

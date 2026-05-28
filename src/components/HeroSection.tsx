@@ -1,4 +1,5 @@
 import { ArrowUpRight, ChevronDown, Mail, Sparkles } from 'lucide-react'
+import { CVButton } from './CVButton'
 
 export function HeroSection() {
   return (
@@ -59,6 +60,7 @@ export function HeroSection() {
             Contacto
             <Mail className="w-4 h-4" />
           </a>
+          <CVButton />
         </div>
 
         {/* Scroll indicator */}

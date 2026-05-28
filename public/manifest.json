@@ -1,0 +1,19 @@
+{
+  "name": "Gustavo Soto — Desarrollador Web",
+  "short_name": "G. Soto Portfolio",
+  "description": "Portfolio profesional de Gustavo Soto, desarrollador web especializado en React y TypeScript",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "web development", "technology"],
+  "lang": "es-CL"
+}

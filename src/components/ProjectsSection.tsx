@@ -1,7 +1,17 @@
-import { completedProjects } from '../data'
+import { useState, useMemo } from 'react'
+import { completedProjects, getAllTechnologies } from '../data'
 import { ProjectCard } from './ProjectCard'
+import { ProjectFilter } from './ProjectFilter'
 
 export function ProjectsSection() {
+  const [activeFilter, setActiveFilter] = useState<string | null>(null)
+
+  const technologies = useMemo(() => getAllTechnologies(), [])
+
+  const filteredProjects = useMemo(() => {
+    if (!activeFilter) return completedProjects
+    return completedProjects.filter((p) => p.tech.includes(activeFilter))
+  }, [activeFilter])
   return (
     <section id="projects" className="py-24 sm:py-32 relative">
       {/* Background decoration */}
@@ -23,10 +33,22 @@ export function ProjectsSection() {
         </div>
 
         {/* Projects */}
+        <ProjectFilter
+          technologies={technologies}
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+        />
+
         <div className="space-y-8">
-          {completedProjects.map((project, i) => (
-            <ProjectCard key={project.title} project={project} index={i} />
-          ))}
+          {filteredProjects.length > 0 ? (
+            filteredProjects.map((project, i) => (
+              <ProjectCard key={project.title} project={project} index={i} />
+            ))
+          ) : (
+            <p className="text-center text-slate-500 py-12">
+              No hay proyectos con la tecnología &quot;{activeFilter}&quot;
+            </p>
+          )}
         </div>
       </div>
     </section>

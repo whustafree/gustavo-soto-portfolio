@@ -10,6 +10,12 @@ import {
 import type { Tech, Project, Experience, FutureProject } from '../types'
 import { HexagonIcon } from '../components/HexagonIcon'
 
+export function getAllTechnologies(): string[] {
+  const techSet = new Set<string>()
+  completedProjects.forEach((p) => p.tech.forEach((t) => techSet.add(t)))
+  return [...techSet].sort()
+}
+
 export const skills: Tech[] = [
   { name: 'React', color: '#60a5fa', bg: 'rgba(96,165,250,0.1)' },
   { name: 'TypeScript', color: '#3178c6', bg: 'rgba(49,120,198,0.1)' },
@@ -34,6 +40,10 @@ export const completedProjects: Project[] = [
     tech: ['React 19', 'TypeScript', 'Tailwind CSS', 'Firebase', 'Recharts', 'PWA', 'PDF export'],
     icon: Activity,
     gradient: 'from-blue-500 to-cyan-400',
+    images: [
+      { src: '/screenshots/diabetes-1.png', alt: 'Dashboard de Diabetes Control' },
+      { src: '/screenshots/diabetes-2.png', alt: 'Gráfico de glucosa' },
+    ],
     links: [{ label: 'Abrir app', href: 'https://diabetes-app-woad.vercel.app/' }],
     status: 'completado',
   },
@@ -45,6 +55,10 @@ export const completedProjects: Project[] = [
     tech: ['React 19', 'TypeScript', 'Tailwind CSS v4', 'Firebase', 'Recharts', 'OCR', 'PWA'],
     icon: Wallet,
     gradient: 'from-emerald-500 to-teal-400',
+    images: [
+      { src: '/screenshots/gastos-1.png', alt: 'Dashboard de GastosApp' },
+      { src: '/screenshots/gastos-2.png', alt: 'Liquidación de sueldo' },
+    ],
     links: [{ label: 'Abrir app', href: 'https://gastos-app-five-iota.vercel.app/' }],
     status: 'completado',
   },
@@ -56,6 +70,9 @@ export const completedProjects: Project[] = [
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     icon: Sparkles,
     gradient: 'from-rose-500 to-pink-400',
+    images: [
+      { src: '/screenshots/marijo-1.png', alt: 'Hero de MarijoTattoo' },
+    ],
     links: [{ label: 'Abrir sitio', href: 'https://marijotatoo.vercel.app/' }],
     status: 'completado',
   },
@@ -67,6 +84,9 @@ export const completedProjects: Project[] = [
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     icon: Globe,
     gradient: 'from-sky-500 to-indigo-400',
+    images: [
+      { src: '/screenshots/whustaf-1.png', alt: 'Página principal de Whustaf' },
+    ],
     links: [{ label: 'Abrir sitio', href: 'https://whustaf.vercel.app/' }],
     status: 'completado',
   },
@@ -78,6 +98,9 @@ export const completedProjects: Project[] = [
     tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vercel'],
     icon: HexagonIcon,
     gradient: 'from-violet-500 to-fuchsia-400',
+    images: [
+      { src: '/screenshots/hex6-1.png', alt: 'Landing page de Hex6' },
+    ],
     links: [{ label: 'Abrir sitio', href: 'https://hex6.vercel.app/' }],
     status: 'completado',
   },

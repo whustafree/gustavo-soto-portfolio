@@ -1,6 +1,8 @@
 import { experience } from '../data'
+import { useInView } from '../hooks/useInView'
 
 export function ExperienceSection() {
+  const { ref, inView } = useInView()
   return (
     <section id="experience" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -8,9 +10,9 @@ export function ExperienceSection() {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative" ref={ref}>
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className={`scroll-animate text-center mb-16 ${inView ? 'in-view' : ''}`}>
           <span className="inline-block text-xs uppercase tracking-widest text-amber-400 font-medium mb-4">
             Trayectoria
           </span>

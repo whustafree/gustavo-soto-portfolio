@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Code2 } from 'lucide-react'
+import { ThemeToggle } from './ThemeToggle'
 
 const links = [
   { label: 'Inicio', href: '#hero' },
@@ -45,14 +46,19 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          <div className="ml-2 pl-2 border-l border-slate-800/50">
+            <ThemeToggle />
+          </div>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
-          aria-label="Menú"
-        >
+        {/* Mobile controls */}
+        <div className="flex md:hidden items-center gap-1">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="p-2 text-slate-400 hover:text-white transition-colors"
+            aria-label="Menú"
+          >
           <div className="w-5 h-4 relative flex flex-col justify-between">
             <span
               className={`block h-0.5 w-full bg-current rounded transition-all ${
@@ -71,6 +77,7 @@ export function Navbar() {
             />
           </div>
         </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
