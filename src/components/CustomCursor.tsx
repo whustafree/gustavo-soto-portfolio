@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 
+function isTouchDevice(): boolean {
+  return typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0)
+}
+
 export function CustomCursor() {
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [visible, setVisible] = useState(false)
-  const [isTouchDevice, setIsTouchDevice] = useState(true)
+  const [isTouch] = useState(isTouchDevice)
 
   useEffect(() => {
-    // Detect touch device
-    const checkTouch = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
-    }
-    checkTouch()
+    if (isTouch) return
 
     const handleMove = (e: MouseEvent) => {
       setPos({ x: e.clientX, y: e.clientY })
@@ -20,20 +20,18 @@ export function CustomCursor() {
     const handleLeave = () => setVisible(false)
     const handleEnter = () => setVisible(true)
 
-    if (!isTouchDevice) {
-      window.addEventListener('mousemove', handleMove, { passive: true })
-      document.addEventListener('mouseleave', handleLeave)
-      document.addEventListener('mouseenter', handleEnter)
-    }
+    window.addEventListener('mousemove', handleMove, { passive: true })
+    document.addEventListener('mouseleave', handleLeave)
+    document.addEventListener('mouseenter', handleEnter)
 
     return () => {
       window.removeEventListener('mousemove', handleMove)
       document.removeEventListener('mouseleave', handleLeave)
       document.removeEventListener('mouseenter', handleEnter)
     }
-  }, [visible, isTouchDevice])
+  }, [visible, isTouch])
 
-  if (isTouchDevice) return null
+  if (isTouch) return null
 
   return (
     <>

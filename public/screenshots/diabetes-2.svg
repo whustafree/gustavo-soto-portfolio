@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#0f172a"/>
+  <text x="400" y="50" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#94a3b8" text-anchor="middle">Gráfico de Glucosa</text>
+  <!-- Y axis -->
+  <line x1="80" y1="80" x2="80" y2="370" stroke="#334155" stroke-width="1"/>
+  <text x="70" y="85" font-family="system-ui, sans-serif" font-size="11" fill="#475569" text-anchor="end">300</text>
+  <text x="70" y="182" font-family="system-ui, sans-serif" font-size="11" fill="#475569" text-anchor="end">200</text>
+  <text x="70" y="278" font-family="system-ui, sans-serif" font-size="11" fill="#475569" text-anchor="end">100</text>
+  <text x="70" y="375" font-family="system-ui, sans-serif" font-size="11" fill="#475569" text-anchor="end">0</text>
+  <!-- Grid lines -->
+  <line x1="80" y1="180" x2="740" y2="180" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="80" y1="275" x2="740" y2="275" stroke="#1e293b" stroke-width="1" stroke-dasharray="4,4"/>
+  <!-- Chart line -->
+  <polyline points="100,340 200,300 300,160 400,200 500,140 600,250 700,180" fill="none" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Area under line -->
+  <polygon points="100,340 200,300 300,160 400,200 500,140 600,250 700,180 700,370 100,370" fill="url(#area)" opacity="0.15"/>
+  <defs>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- Data points -->
+  <circle cx="100" cy="340" r="4" fill="#3b82f6"/>
+  <circle cx="200" cy="300" r="4" fill="#3b82f6"/>
+  <circle cx="300" cy="160" r="4" fill="#3b82f6"/>
+  <circle cx="400" cy="200" r="4" fill="#3b82f6"/>
+  <circle cx="500" cy="140" r="4" fill="#3b82f6"/>
+  <circle cx="600" cy="250" r="4" fill="#3b82f6"/>
+  <circle cx="700" cy="180" r="4" fill="#3b82f6"/>
+  <!-- Legend -->
+  <rect x="600" y="390" width="160" height="40" rx="8" fill="#1e293b"/>
+  <rect x="610" y="404" width="10" height="10" rx="2" fill="#3b82f6"/>
+  <text x="628" y="413" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Glucosa (mg/dL)</text>
+  <text x="400" y="440" font-family="system-ui, sans-serif" font-size="11" fill="#475569" text-anchor="middle">Placeholder — Reemplazar con screenshot real</text>
+</svg>

@@ -2,8 +2,10 @@ import { useState, useMemo } from 'react'
 import { completedProjects, getAllTechnologies } from '../data'
 import { ProjectCard } from './ProjectCard'
 import { ProjectFilter } from './ProjectFilter'
+import { useInView } from '../hooks/useInView'
 
 export function ProjectsSection() {
+  const { ref, inView } = useInView()
   const [activeFilter, setActiveFilter] = useState<string | null>(null)
 
   const technologies = useMemo(() => getAllTechnologies(), [])
@@ -20,9 +22,9 @@ export function ProjectsSection() {
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative" ref={ref}>
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className={`scroll-animate text-center mb-16 ${inView ? 'in-view' : ''}`}>
           <span className="inline-block text-xs uppercase tracking-widest text-emerald-400 font-medium mb-4">
             Trabajo realizado
           </span>

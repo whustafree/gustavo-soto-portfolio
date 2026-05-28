@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" fill="none">
+  <rect width="800" height="450" fill="#0f172a"/>
+  <text x="400" y="50" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#94a3b8" text-anchor="middle">Whustaf — Link in Bio</text>
+  <!-- Avatar placeholder -->
+  <circle cx="400" cy="120" r="40" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="400" y="127" font-family="system-ui, sans-serif" font-size="20" fill="#60a5fa" text-anchor="middle">W</text>
+  <text x="400" y="180" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="white" text-anchor="middle">@whustaf</text>
+  <text x="400" y="200" font-family="system-ui, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Desarrollador Web</text>
+  <!-- Links -->
+  <rect x="200" y="230" width="400" height="44" rx="22" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="257" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">GitHub</text>
+  <rect x="200" y="284" width="400" height="44" rx="22" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="311" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Portfolio</text>
+  <rect x="200" y="338" width="400" height="44" rx="22" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="365" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">LinkedIn</text>
+  <rect x="200" y="392" width="400" height="44" rx="22" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="419" font-family="system-ui, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">Contacto</text>
+</svg>
